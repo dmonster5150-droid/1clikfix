@@ -1,0 +1,9 @@
+
+[build]
+  publish = "/"
+  functions = "functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/src/pages/Home.html"
+  status = 200
