@@ -1,0 +1,11 @@
+{
+  "name": "1clikfix",
+  "version": "1.0.0",
+  "description": "1ClikFix — Book a contractor or mechanic easily.",
+  "scripts": {
+    "build": "echo 'No build step needed for static site'",
+    "start": "echo 'Static site ready'"
+  },
+  "author": "DMonster5150",
+  "license": "MIT"
+}
