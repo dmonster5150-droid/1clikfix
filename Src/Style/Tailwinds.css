@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary:#0066ff;
+  --accent:#ff3b3b;
+  --blackish:#0a0a0a;
+}
+body{ font-family: Inter, ui-sans-serif, system-ui; }
