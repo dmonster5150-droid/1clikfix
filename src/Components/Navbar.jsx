@@ -1,4 +1,11 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
+<Link to="/client">Client</Link>
+<Link to="/provider">Provider</Link>
+<Link to="/booking">Booking</Link>
+<Link to="/calendar">Calendar</Link>
+<Link to="/subscribe">Subscribe</Link>
+<Link to="/about">About</Link> React from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
