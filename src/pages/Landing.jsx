@@ -1,30 +1,27 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
-      <h2 className="text-3xl font-bold mb-4">
-        Welcome to 1ClikFix — please choose an option to continue
-      </h2>
-      <div className="space-y-4 w-full max-w-xs">
-        <Link
-          to="/login"
-          className="block bg-blue-600 text-white py-2 rounded-lg shadow"
+    <div className="text-center py-20">
+      <h1 className="text-3xl font-bold mb-6 text-red-600">
+        Welcome to 1ClikFix
+      </h1>
+      <p className="mb-8">Please choose an option to continue:</p>
+      <div className="flex justify-center gap-4">
+        <button
+          onClick={() => navigate("/client")}
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700"
         >
-          Sign In
-        </Link>
-        <Link
-          to="/provider"
-          className="block bg-red-600 text-white py-2 rounded-lg shadow"
+          I need a service provider
+        </button>
+        <button
+          onClick={() => navigate("/provider")}
+          className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700"
         >
-          Are you a Service Provider?
-        </Link>
-        <Link
-          to="/client"
-          className="block bg-green-600 text-white py-2 rounded-lg shadow"
-        >
-          Need a Service Provider?
-        </Link>
+          I am a service provider
+        </button>
       </div>
     </div>
   );
