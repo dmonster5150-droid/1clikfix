@@ -1,8 +1,0 @@
-// netlify/functions/createPaymentLink.js
-// Placeholder - your Netlify env must have VITE_SQUARE_ACCESS_TOKEN set
-exports.handler = async (event) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Square payment link placeholder. Implement server logic with Square SDK." })
-  };
-};
