@@ -1,18 +1,30 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Landing(){
-  const nav = useNavigate();
+export default function Landing() {
   return (
-    <div className="grid gap-8 items-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-extrabold">Welcome to 1clikfix</h1>
-        <p className="mt-2 text-gray-600">Please choose an option to continue</p>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onClick={()=>nav('/login')} className="w-full sm:w-auto px-6 py-3 bg-redbrand text-white rounded font-semibold">Sign In</button>
-        <button onClick={()=>nav('/provider')} className="w-full sm:w-auto px-6 py-3 border rounded">I am a Service Provider</button>
-        <button onClick={()=>nav('/client')} className="w-full sm:w-auto px-6 py-3 border rounded">I Need a Service Provider</button>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
+      <h2 className="text-3xl font-bold mb-4">
+        Welcome to 1ClikFix — please choose an option to continue
+      </h2>
+      <div className="space-y-4 w-full max-w-xs">
+        <Link
+          to="/login"
+          className="block bg-blue-600 text-white py-2 rounded-lg shadow"
+        >
+          Sign In
+        </Link>
+        <Link
+          to="/provider"
+          className="block bg-red-600 text-white py-2 rounded-lg shadow"
+        >
+          Are you a Service Provider?
+        </Link>
+        <Link
+          to="/client"
+          className="block bg-green-600 text-white py-2 rounded-lg shadow"
+        >
+          Need a Service Provider?
+        </Link>
       </div>
     </div>
   );
