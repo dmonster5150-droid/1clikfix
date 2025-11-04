@@ -1,11 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-export default function NotFound(){
+export default function NotFound() {
   return (
-    <div className="text-center">
-      <h2 className="text-2xl font-bold">Page not found</h2>
-      <p className="mt-2">Go back to <Link to="/" className="underline">home</Link>.</p>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center">
+      <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
+      <Link to="/" className="text-blue-600 underline">
+        Go back home
+      </Link>
     </div>
   );
 }
