@@ -1,4 +1,43 @@
-import ProviderProfile from "./pages/ProviderProfile.jsx"; <Route path="/provider-profile" element={<ProviderProfile />} /> from "react";
+// imports at top
+import ProtectedRoute from "./auth/ProtectedRoute.jsx";
+import ProviderProfile from "./pages/ProviderProfile.jsx";
+import CalendarPage from "./pages/CalendarPage.jsx";
+import JobListings from "./pages/JobListings.jsx";
+
+<Routes>
+  {/* Public pages */}
+  <Route path="/" element={<Landing />} />
+  <Route path="/login" element={<Login />} />
+
+  {/* Provider-only pages */}
+  <Route
+    path="/provider-profile"
+    element={
+      <ProtectedRoute>
+        <ProviderProfile />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/calendar"
+    element={
+      <ProtectedRoute>
+        <CalendarPage />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/jobs"
+    element={
+      <ProtectedRoute>
+        <JobListings />
+      </ProtectedRoute>
+    }
+  />
+
+  {/* Fallback */}
+  <Route path="*" element={<NotFound />} />
+</Routes> ProviderProfile from "./pages/ProviderProfile.jsx"; <Route path="/provider-profile" element={<ProviderProfile />} /> from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
