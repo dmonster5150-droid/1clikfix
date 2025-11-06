@@ -1,4 +1,4 @@
-import <Route path="/provider-profile" element={<ProviderProfile />} /> from "react";
+import ProviderProfile from "./pages/ProviderProfile.jsx"; <Route path="/provider-profile" element={<ProviderProfile />} /> from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
