@@ -1,4 +1,4 @@
-// Netlify serverless function to create Square payment links (uses square SDK)
+// serverless function to create Square payment links (Netlify functions)
 const { Client, Environment } = require("square");
 
 exports.handler = async (event) => {
@@ -27,9 +27,7 @@ exports.handler = async (event) => {
           }
         ]
       },
-      checkout_options: {
-        redirect_url: (process.env.VITE_SITE_URL || '') + "/provider?paid=true"
-      },
+      checkout_options: { redirect_url: (process.env.VITE_SITE_URL || '') + "/provider?paid=true" },
       reference_id: referenceId
     };
 
@@ -38,6 +36,6 @@ exports.handler = async (event) => {
     return { statusCode: 200, body: JSON.stringify({ url }) };
   } catch (err) {
     console.error(err);
-    return { statusCode: 500, body: JSON.stringify({ error: (err && err.message) || String(err) }) };
+    return { statusCode: 500, body: JSON.stringify({ error: err.message || String(err) }) };
   }
 };
