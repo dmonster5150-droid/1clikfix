@@ -1,4 +1,4 @@
-import React from "react";
+import <Route path="/provider-profile" element={<ProviderProfile />} /> from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -39,10 +39,6 @@ export default function App(){
             <Route path="/login" element={<Login/>} />
             <Route path="/about" element={<About/>} />
             <Route path="*" element={<NotFound/>} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </AuthProvider>
-  );
-}
+        
+
+          
