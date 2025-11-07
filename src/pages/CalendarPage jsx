@@ -1,7 +1,6 @@
-// src/pages/CalendarPage.jsx
 import React, { useEffect, useState } from "react";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase/firebase.js";
 import { useAuth } from "../auth/AuthProvider.jsx";
 
 export default function CalendarPage() {
@@ -9,33 +8,25 @@ export default function CalendarPage() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    if (!user) return;
+    if(!user) return;
     const q = query(collection(db, "jobs"), where("providerId", "==", user.uid));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const jobList = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setJobs(jobList);
-    });
-    return () => unsubscribe();
+    const unsub = onSnapshot(q, snap => setJobs(snap.docs.map(d=>({ id:d.id, ...d.data() }))));
+    return ()=>unsub();
   }, [user]);
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 text-center">📅 Your Job Calendar</h1>
-      {jobs.length === 0 ? (
-        <p className="text-gray-500 text-center">No jobs scheduled yet.</p>
-      ) : (
-        <ul className="space-y-3">
-          {jobs.map((job) => (
-            <li key={job.id} className="border p-3 rounded-lg bg-white shadow-sm">
-              <h3 className="font-semibold">{job.serviceName}</h3>
-              <p>{job.clientName}</p>
-              <p>Date: {job.date}</p>
-              <p>Time: {job.time}</p>
-              <p>Status: {job.status || "Pending"}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <h1 className="text-2xl font-bold mb-4 text-center">Your Job Calendar</h1>
+      {jobs.length===0 ? <p className="text-center text-gray-500">No jobs assigned yet.</p> :
+      <ul className="space-y-3">
+        {jobs.map(j => (
+          <li key={j.id} className="border p-3 rounded bg-white">
+            <div className="font-semibold">{j.serviceName}</div>
+            <div className="text-sm text-gray-500">{j.date} • {j.location}</div>
+            <div className="mt-2">Status: <strong>{j.status}</strong></div>
+          </li>
+        ))}
+      </ul>}
     </div>
   );
 }
