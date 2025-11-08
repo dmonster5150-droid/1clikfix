@@ -1,7 +1,6 @@
-// simple AuthProvider using firebase auth
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { auth } from "../firebase/firebase.js";
 
 const AuthContext = createContext();
 
