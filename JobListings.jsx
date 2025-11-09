@@ -1,1 +1,0 @@
-import React from 'react'; export default function JobListings(){ return <div className='container'><h2>Job Listings</h2></div> }
