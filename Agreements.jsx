@@ -1,0 +1,1 @@
+import React from 'react'; export default function Agreements(){ return <div className='container'><h2>Agreements</h2></div> }

@@ -1,0 +1,1 @@
+import React from 'react'; export default function Subscribe(){ return <div className='container'><h2>Subscribe (Square)</h2></div> }
