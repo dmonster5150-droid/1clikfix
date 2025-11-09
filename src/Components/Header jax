@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/AuthProvider";
+import { useAuth } from "../auth/AuthProvider.jsx";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -11,7 +11,7 @@ export default function Header() {
       <div className="container header-inner">
         <div className="logo" onClick={() => nav("/")}>
           <span className="logo-emoji">🧰</span>
-          <span className="logo-text"> 1clik<span className="logo-accent">fix</span>.com</span>
+          <span className="logo-text">1clik<span className="logo-accent">fix</span>.com</span>
         </div>
 
         <nav className="nav-links">
@@ -20,7 +20,7 @@ export default function Header() {
           <Link to="/jobs">Jobs</Link>
           {user ? (
             <>
-              <span className="small">Hi {user.displayName || "User"}</span>
+              <small style={{marginRight:8}}>Hi {user.displayName || "User"}</small>
               <button onClick={() => logout()} className="btn-link">Sign out</button>
             </>
           ) : (
