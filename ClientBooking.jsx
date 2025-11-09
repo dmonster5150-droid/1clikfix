@@ -1,1 +1,0 @@
-import React from 'react'; export default function ClientBooking(){ return <div className='container'><h2>Client Booking</h2></div> }
