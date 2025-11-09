@@ -1,1 +1,0 @@
-import React from 'react'; export default function ProviderProfile(){ return <div className='container'><h2>Provider Profile</h2></div> }
