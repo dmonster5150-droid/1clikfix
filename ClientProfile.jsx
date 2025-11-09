@@ -1,1 +1,0 @@
-import React from 'react'; export default function ClientProfile(){ return <div className='container'><h2>Client Profile</h2></div> }
