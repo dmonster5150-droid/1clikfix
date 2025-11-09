@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Agreements(){
+  const [accepted,setAccepted] = useState(false);
   const nav = useNavigate();
-  function agree(){
-    alert('You accepted the terms.');
-    nav('/client-dashboard');
-  }
+
+  const submit = (e) => {
+    e.preventDefault();
+    if(!accepted) return alert("You must accept the terms");
+    nav("/client-booking");
+  };
 
   return (
-    <div className="max-w-3xl bg-white p-6 rounded shadow">
-      <h2 className="text-xl font-bold mb-4">Disclosure & User Agreement</h2>
-      <div className="text-sm text-gray-700 space-y-3 mb-4">
-        <p>By booking, you consent to share your contact details with providers only after they accept the job. Providers agree to follow local codes and show proper certification for specialized work. 1ClikFix is a platform connecting clients and providers; payments and on-site work are between client and provider.</p>
-        <p>Cancellation fee: $50 if service provider cancels after accepting a job.</p>
-      </div>
-      <div className="flex justify-end">
-        <button onClick={agree} className="bg-redbrand text-white px-4 py-2 rounded">Agree & Submit</button>
-      </div>
+    <div className="container" style={{maxWidth:720}}>
+      <form onSubmit={submit} className="card">
+        <h2>User Disclosures & Agreements</h2>
+        <div style={{background:'#fafafa', padding:12, borderRadius:8, marginBottom:12}}>
+          <p>By booking through 1clikfix.com you consent to share your name and phone number with the provider once they accept the job. Cancellation fees may apply. Providers are independent contractors; 1ClikFix is not responsible for work quality — please verify provider credentials.</p>
+        </div>
+
+        <label><input type="checkbox" checked={accepted} onChange={(e)=>setAccepted(e.target.checked)} /> I have read and agree to the terms</label>
+        <br />
+        <button type="submit">Continue to Booking</button>
+      </form>
     </div>
   );
 }
