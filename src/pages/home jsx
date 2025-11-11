@@ -1,1 +1,40 @@
 
+import React from "react";
+import { Link } from "react-router-dom";
+
+export default function Home() {
+  return (
+    <div className="text-center py-16 bg-dark min-h-screen flex flex-col items-center justify-center text-white">
+      <h1 className="text-4xl md:text-5xl font-bold mb-8">
+        Welcome to <span className="text-primary">🧰1clikfix.com</span>
+      </h1>
+
+      <p className="mb-10 text-gray-300 text-lg">
+        Please choose an option to continue:
+      </p>
+
+      <div className="flex flex-col md:flex-row gap-6">
+        <Link
+          to="/login"
+          className="px-8 py-4 bg-primary text-white rounded-xl hover:bg-red-700 transition"
+        >
+          Sign In
+        </Link>
+
+        <Link
+          to="/register?type=provider"
+          className="px-8 py-4 bg-grayish rounded-xl hover:bg-primary transition"
+        >
+          I’m a Service Provider
+        </Link>
+
+        <Link
+          to="/register?type=client"
+          className="px-8 py-4 bg-grayish rounded-xl hover:bg-primary transition"
+        >
+          I need a Service Provider
+        </Link>
+      </div>
+    </div>
+  );
+}
