@@ -1,13 +1,13 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#c40000",
-        dark: "#111111",
-        grayish: "#2b2b2b"
+        dark: "#0a0a0a",
+        grayish: "#1a1a1a",
+        primary: "#b91c1c",
       },
     },
   },
   plugins: [],
-}
+};
