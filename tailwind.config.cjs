@@ -1,11 +1,11 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
-        dark: "#0a0a0a",
-        grayish: "#1a1a1a",
-        primary: "#b91c1c",
+        brandRed: "#D32F2F",
+        darkBg: "#121212",
+        darkGray: "#333333",
       },
     },
   },
