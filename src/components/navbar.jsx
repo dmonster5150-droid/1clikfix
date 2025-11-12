@@ -1,32 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase/config";
 
 export default function Navbar() {
-  const handleLogout = async () => {
-    await signOut(auth);
-    window.location.href = "/";
+  const navigate = useNavigate();
+  const user = auth.currentUser;
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/");
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
-    <nav className="flex items-center justify-between bg-dark text-white px-6 py-4 border-b border-gray-700">
-      <Link to="/" className="text-xl font-bold text-primary">
-        🧰1clikfix
-      </Link>
-      <div className="flex gap-4">
-        <Link to="/dashboard" className="hover:text-primary">
-          Dashboard
-        </Link>
-        <Link to="/calendar" className="hover:text-primary">
-          Calendar
-        </Link>
-        <Link to="/subscribe" className="hover:text-primary">
-          Subscribe
-        </Link>
-        <button onClick={handleLogout} className="text-gray-400 hover:text-red-500">
-          Logout
-        </button>
+    <nav className="bg-black border-b border-gray-800 p-4 flex justify-between items-center">
+      <div className="flex items-center space-x-3">
+        <span className="text-xl font-bold">🧰 1clikfix<span className="text-brandRed">.com</span></span>
+      </div>
+
+      <div className="flex items-center space-x-4">
+        <Link to="/" className="hover:text-brandRed">Home</Link>
+        <Link to="/client" className="hover:text-brandRed">Clients</Link>
+        <Link to="/provider" className="hover:text-brandRed">Providers</Link>
+        <Link to="/disclosures" className="hover:text-brandRed">Disclosures</Link>
+        {user ? (
+          <>
+            <button onClick={logout} className="btn btn-primary">Logout</button>
+          </>
+        ) : (
+          <Link to="/subscribe" className="btn btn-primary">Subscribe</Link>
+        )}
       </div>
     </nav>
   );
