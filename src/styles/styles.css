@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+/* small helpers */
+.btn {
+  @apply px-4 py-2 rounded-lg font-semibold;
+}
+.btn-primary {
+  @apply bg-brandRed hover:bg-red-700 text-white;
+}
+.card {
+  @apply bg-gray-900 p-4 rounded-lg border border-gray-700;
+}
