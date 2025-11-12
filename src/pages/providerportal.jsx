@@ -1,27 +1,14 @@
 import React from "react";
+import LoginForm from "../components/LoginForm";
 
 export default function ProviderPortal() {
-  const jobs = [
-    { title: "Client: John D. — Faucet Leak", location: "Houston, TX" },
-    { title: "Client: Sarah M. — Ceiling Fan Install", location: "Dallas, TX" },
-  ];
-
   return (
     <div>
-      <h2 className="text-2xl font-bold text-red-600 mb-4">
-        Provider Dashboard
-      </h2>
-      <p className="text-gray-300 mb-4">
-        You must have an active subscription to access full job details.
-      </p>
-
-      <div className="space-y-3">
-        {jobs.map((job, i) => (
-          <div key={i} className="card">
-            <h3 className="text-lg">{job.title}</h3>
-            <p className="text-gray-400">{job.location}</p>
-          </div>
-        ))}
+      <h2 className="text-2xl font-bold text-brandRed mb-4">Provider Portal</h2>
+      <p className="text-gray-300 mb-4">Providers must subscribe to access calendar and jobs.</p>
+      <LoginForm role="provider" />
+      <div className="mt-4">
+        <a href={import.meta.env.VITE_SQUARE_SITE_URL || "https://1clikfixsquare.square.site"} target="_blank" rel="noreferrer" className="btn btn-primary">Subscribe via Square</a>
       </div>
     </div>
   );
