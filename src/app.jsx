@@ -1,47 +1,38 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ProtectedRoute from "./components/ProtectedRoute";
-
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Calendar from "./pages/Calendar";
-import Subscribe from "./pages/Subscribe";
+import ClientPortal from "./pages/ClientPortal";
+import ProviderPortal from "./pages/ProviderPortal";
+import ProfileCreation from "./pages/ProfileCreation";
+import Subscription from "./pages/Subscription";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen bg-dark">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/calendar"
-              element={
-                <ProtectedRoute>
-                  <Calendar />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/subscribe" element={<Subscribe />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <div className="min-h-screen bg-black text-white">
+      <header className="bg-gray-900 p-4 flex justify-between items-center shadow-md">
+        <h1 className="text-2xl font-bold text-red-600">🧰 1clikfix.com</h1>
+        <nav className="space-x-4">
+          <Link to="/" className="hover:text-red-400">Home</Link>
+          <Link to="/client" className="hover:text-red-400">Client</Link>
+          <Link to="/provider" className="hover:text-red-400">Provider</Link>
+        </nav>
+      </header>
+
+      <main className="p-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/client" element={<ClientPortal />} />
+          <Route path="/provider" element={<ProviderPortal />} />
+          <Route path="/profile" element={<ProfileCreation />} />
+          <Route path="/subscribe" element={<Subscription />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
+      <footer className="text-center p-4 border-t border-gray-700 text-sm text-gray-400">
+        © {new Date().getFullYear()} 1clikfix.com — All Rights Reserved
+      </footer>
+    </div>
   );
 }
