@@ -1,38 +1,53 @@
 import React from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ClientPortal from "./pages/ClientPortal";
 import ProviderPortal from "./pages/ProviderPortal";
-import ProfileCreation from "./pages/ProfileCreation";
-import Subscription from "./pages/Subscription";
-import NotFound from "./pages/NotFound";
+import Subscribe from "./pages/Subscribe";
+import Profile from "./pages/ClientPortal"; // ClientPortal includes links to profile/jobform
+import ProviderDashboard from "./components/ProviderDashboard";
+import ClientDashboard from "./components/ClientDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Disclosures from "./pages/Disclosures";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <header className="bg-gray-900 p-4 flex justify-between items-center shadow-md">
-        <h1 className="text-2xl font-bold text-red-600">🧰 1clikfix.com</h1>
-        <nav className="space-x-4">
-          <Link to="/" className="hover:text-red-400">Home</Link>
-          <Link to="/client" className="hover:text-red-400">Client</Link>
-          <Link to="/provider" className="hover:text-red-400">Provider</Link>
-        </nav>
-      </header>
-
-      <main className="p-6">
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow p-6">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/client" element={<ClientPortal />} />
           <Route path="/provider" element={<ProviderPortal />} />
-          <Route path="/profile" element={<ProfileCreation />} />
-          <Route path="/subscribe" element={<Subscription />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/subscribe" element={<Subscribe />} />
+          <Route path="/disclosures" element={<Disclosures />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+
+          <Route
+            path="/provider-dashboard"
+            element={
+              <ProtectedRoute>
+                <ProviderDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/client-dashboard"
+            element={
+              <ProtectedRoute clientOnly={true}>
+                <ClientDashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
-
-      <footer className="text-center p-4 border-t border-gray-700 text-sm text-gray-400">
-        © {new Date().getFullYear()} 1clikfix.com — All Rights Reserved
-      </footer>
+      <Footer />
     </div>
   );
 }
