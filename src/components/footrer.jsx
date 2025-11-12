@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark border-t border-gray-700 text-center py-6 text-gray-400 text-sm">
-      <p>© 2025 1clikfix.com — All Rights Reserved</p>
-      <p className="mt-2">
-        <a href="/terms" className="hover:text-white">Terms of Service</a> |{" "}
-        <a href="/privacy" className="hover:text-white">Privacy Policy</a>
-      </p>
+    <footer className="bg-black border-t border-gray-800 text-center p-6 text-gray-400">
+      <div>© {new Date().getFullYear()} 1clikfix.com</div>
+      <div className="mt-2 space-x-4">
+        <Link to="/privacy" className="hover:text-brandRed">Privacy</Link>
+        <Link to="/terms" className="hover:text-brandRed">Terms</Link>
+      </div>
     </footer>
   );
 }
