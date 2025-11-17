@@ -1,4 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+
+export default function ProviderDashboard() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function verify() {
+      const user = auth.currentUser;
+      if (!user) return navigate("/login");
+
+      const snap = await getDoc(doc(db, "providers", user.uid));
+      if (!snap.exists()) return navigate("/provider-onboarding");
+
+      if (!snap.data().approved) return navigate("/pending-approval");
+    }
+
+    verify();
+  }, []); { useState, useEffect } from "react";
 import { auth, db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
