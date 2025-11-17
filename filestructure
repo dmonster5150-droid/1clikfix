@@ -1,0 +1,17 @@
+index.html
+src/
+  main.jsx
+  App.jsx
+  styles.css
+  pages/
+    Landing.jsx
+    client/
+      ClientLanding.jsx
+      ClientBooking.jsx
+    provider/
+      ProviderSubscribe.jsx
+      ProviderOnboarding.jsx
+      ProviderProfile.jsx
+      ProviderDashboard.jsx
+  lib/
+    auth.js         (tiny helpers)
