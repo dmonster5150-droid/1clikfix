@@ -1,4 +1,17 @@
-import { initializeApp } from "firebase/app";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
+await setDoc(doc(db, "providers", user.uid), {
+  uid: user.uid,
+  name,
+  skills,
+  age,
+  createdAt: Date.now(),
+  approved: true,     // 🔥 AUTO APPROVED
+  subscriptionActive: true
+});
+
+navigate("/provider-dashboard"); { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
