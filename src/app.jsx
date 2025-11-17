@@ -1,53 +1,43 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import ClientPortal from "./pages/ClientPortal";
-import ProviderPortal from "./pages/ProviderPortal";
-import Subscribe from "./pages/Subscribe";
-import Profile from "./pages/ClientPortal"; // ClientPortal includes links to profile/jobform
-import ProviderDashboard from "./components/ProviderDashboard";
-import ClientDashboard from "./components/ClientDashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Disclosures from "./pages/Disclosures";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
+import { Routes, Route, Link } from "react-router-dom";
+import Landing from "./pages/Landing";
+import ClientLanding from "./pages/client/ClientLanding";
+import ClientBooking from "./pages/client/ClientBooking";
+import ProviderSubscribe from "./pages/provider/ProviderSubscribe";
+import ProviderOnboarding from "./pages/provider/ProviderOnboarding";
+import ProviderProfile from "./pages/provider/ProviderProfile";
+import ProviderDashboard from "./pages/provider/ProviderDashboard";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow p-6">
+    <>
+      <header className="topbar">
+        <div className="container">
+          <Link to="/" className="logo">🧰 1clikfix.com</Link>
+          <nav>
+            <Link to="/client">Clients</Link>
+            <Link to="/provider-subscribe">Providers</Link>
+            <Link to="/about">About</Link>
+          </nav>
+        </div>
+      </header>
+
+      <main className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/client" element={<ClientPortal />} />
-          <Route path="/provider" element={<ProviderPortal />} />
-          <Route path="/subscribe" element={<Subscribe />} />
-          <Route path="/disclosures" element={<Disclosures />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-
-          <Route
-            path="/provider-dashboard"
-            element={
-              <ProtectedRoute>
-                <ProviderDashboard />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/client-dashboard"
-            element={
-              <ProtectedRoute clientOnly={true}>
-                <ClientDashboard />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/" element={<Landing />} />
+          <Route path="/client" element={<ClientLanding />} />
+          <Route path="/client/book" element={<ClientBooking />} />
+          <Route path="/provider-subscribe" element={<ProviderSubscribe />} />
+          <Route path="/provider-onboarding" element={<ProviderOnboarding />} />
+          <Route path="/provider-profile" element={<ProviderProfile />} />
+          <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+          <Route path="*" element={<div>404 — Not found</div>} />
         </Routes>
       </main>
-      <Footer />
-    </div>
+
+      <footer className="footer">
+        <div className="container">© 1clikfixx</div>
+      </footer>
+    </>
   );
 }
