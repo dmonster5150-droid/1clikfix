@@ -1,4 +1,43 @@
-import React, {useEffect, useState} from "react";
+import { useState, useEffect } from "react";
+import { auth, db } from "../firebase";
+import { doc, onSnapshot } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+
+export default function ProviderDashboard() {
+  const [provider, setProvider] = useState(null);
+  const navigate = useNavigate();
+  const user = auth.currentUser;
+
+  useEffect(() => {
+    if (!user) return navigate("/login");
+
+    const unsub = onSnapshot(doc(db, "providers", user.uid), snap => {
+      setProvider(snap.data());
+    });
+
+    return () => unsub();
+  }, []);
+
+  if (!provider) return <h2>Loading dashboard...</h2>;
+
+  return (
+    <div style={{ padding: "30px", fontFamily: "Arial" }}>
+      <h1>Welcome Provider</h1>
+
+      <p><b>Email:</b> {user.email}</p>
+      <p><b>Skill Level:</b> {provider.skillLevel}</p>
+      <p><b>Status:</b> {provider.approved ? "Approved" : "Pending Review"}</p>
+
+      <br />
+
+      <button>📋 View Available Jobs</button>
+      <br /><br />
+      <button>💰 Payment & Subscription</button>
+      <br /><br />
+      <button onClick={() => auth.signOut()}>Log Out</button>
+    </div>
+  );
+} React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ProviderDashboard(){
