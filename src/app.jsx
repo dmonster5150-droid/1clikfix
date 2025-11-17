@@ -1,4 +1,8 @@
-import React from "react";
+import ProviderOnboarding from "./pages/providerOnboarding";
+import ProviderDashboard from "./pages/providerDashboard";
+
+<Route path="/provider-onboarding" element={<ProviderOnboarding />} />
+<Route path="/provider-dashboard" element={<ProviderDashboard />} /> React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Landing from "./pages/Landing";
 import ClientLanding from "./pages/client/ClientLanding";
