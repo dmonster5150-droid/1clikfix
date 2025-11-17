@@ -1,19 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background-color: #121212;
-  color: white;
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --accent:#c21b1b; /* red accent */
+  --muted:#666;
+  --card:#f8f8f9;
 }
-
-/* small helpers */
-.btn {
-  @apply px-4 py-2 rounded-lg font-semibold;
-}
-.btn-primary {
-  @apply bg-brandRed hover:bg-red-700 text-white;
-}
-.card {
-  @apply bg-gray-900 p-4 rounded-lg border border-gray-700;
-}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;color:var(--text);background:var(--bg)}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.topbar{background:#111;color:#fff;padding:12px 0}
+.topbar .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;color:#fff;text-decoration:none}
+nav a{color:#ddd;margin-left:14px;text-decoration:none}
+h1{margin:0 0 12px;font-size:28px}
+.card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-bottom:16px}
+.button{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+.button.ghost{background:transparent;border:1px solid #ddd;color:var(--text)}
+.form-row{margin-bottom:12px}
+.input, textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e5e5e5}
+.small{font-size:13px;color:var(--muted)}
+.footer{padding:18px 0;text-align:center;color:var(--muted);margin-top:36px;background:#fafafa}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
