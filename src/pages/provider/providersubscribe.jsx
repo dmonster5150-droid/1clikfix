@@ -40,7 +40,7 @@ export default function ProviderSubscribe(){
 
   return (
     <div className="card">
-      <h1>Provider subscription — $20.99</h1>
+      <h1>Provider subscription — $35.99</h1>
       <p className="small">Subscribe to get access to available jobs and the provider calendar.</p>
 
       <div style={{maxWidth:320, marginTop:12}}>
@@ -54,7 +54,7 @@ export default function ProviderSubscribe(){
               href={SQUARE_LINK}
               rel="noreferrer"
             >
-              Subscribe $20.99
+              Subscribe $35.99
             </a>
           </div>
           <div className="small">After payment you'll be redirected to onboarding.</div>
