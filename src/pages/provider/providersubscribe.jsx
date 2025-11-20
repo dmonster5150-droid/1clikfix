@@ -43,6 +43,14 @@ export default function ProviderSubscribe(){
       <h1>Provider subscription — $35.99</h1>
       <p className="small">Subscribe to get access to available jobs and the provider calendar.</p>
 
+      <div style={{marginTop:20, marginBottom:20, padding:16, background:'#fff3cd', borderRadius:8, border:'1px solid #ffc107'}}>
+        <p style={{margin:0, fontSize:14, lineHeight:1.5}}>
+          <strong>Before subscribing you acknowledge and agree to the following terms:</strong>
+          <br/>
+          Provider must have 3+ yrs exp. as a handyman, have transportation, have all necessary tools, speak English, have CA DL.
+        </p>
+      </div>
+
       <div style={{maxWidth:320, marginTop:12}}>
         <div style={{overflow:'auto', display:'flex', flexDirection:'column', alignItems:'center', background:'#fff', borderRadius:10, padding:8}}>
           <div style={{padding:12}}>
