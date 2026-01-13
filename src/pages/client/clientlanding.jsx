@@ -5,6 +5,7 @@ const demoJobs = [
   { id:'j1', title: 'Fix leaky faucet', price: 50 },
   { id:'j2', title: 'Replace outlet', price: 80 },
   { id:'j3', title: 'Patch drywall', price: 120 }
+  { id:'j4', title: 'Cabinet repair', price: 100 }
 ];
 
 export default function ClientLanding(){
