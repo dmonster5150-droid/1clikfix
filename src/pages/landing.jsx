@@ -5,7 +5,7 @@ export default function Landing(){
   return (
     <div>
       <div className="card">
-        <h1>Welcome to 1clikfixx</h1>
+        <h1>Welcome to 1clikfix</h1>
         <p className="small">Choose an option to continue</p>
         <div style={{marginTop:12}}>
           <Link className="button" to="/client">I need a service</Link>

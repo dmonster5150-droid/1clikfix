@@ -7,37 +7,22 @@ import ProviderSubscribe from "./pages/provider/providersubscribe";
 import ProviderOnboarding from "./pages/provider/provideronboarding";
 import ProviderProfile from "./pages/provider/providerprofile";
 import ProviderDashboard from "./pages/provider/providerdashboard";
+// src/App.jsx
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-export default function App() {
+import Landing from "./pages/Landing";
+import ProviderOnboarding from "./pages/ProviderOnboarding";
+import ProviderDashboard from "./pages/ProviderDashboard";
+
+function App() {
   return (
-    <>
-      <header className="topbar">
-        <div className="container">
-          <Link to="/" className="logo">🧰 1clikfix.com</Link>
-          <nav>
-            <Link to="/client">Clients</Link>
-            <Link to="/provider-subscribe">Providers</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </div>
-      </header>
-
-      <main className="container">
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/client" element={<ClientLanding />} />
-          <Route path="/client/book" element={<ClientBooking />} />
-          <Route path="/provider-subscribe" element={<ProviderSubscribe />} />
-          <Route path="/provider-onboarding" element={<ProviderOnboarding />} />
-          <Route path="/provider-profile" element={<ProviderProfile />} />
-          <Route path="/provider-dashboard" element={<ProviderDashboard />} />
-          <Route path="*" element={<div>404 — Not found</div>} />
-        </Routes>
-      </main>
-
-      <footer className="footer">
-        <div className="container">© 1clikfixx</div>
-      </footer>
-    </>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/provider-onboarding" element={<ProviderOnboarding />} />
+      <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+    </Routes>
   );
 }
+
+export default App;
