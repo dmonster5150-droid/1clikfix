@@ -1,16 +1,12 @@
-import ProviderOnboarding from "./pages/providerOnboarding";
-import ProviderDashboard from "./pages/providerDashboard";
-
-<Route path="/provider-onboarding" element={<ProviderOnboarding />} />
-<Route path="/provider-dashboard" element={<ProviderDashboard />} /> React from "react";
+import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Landing from "./pages/Landing";
-import ClientLanding from "./pages/client/ClientLanding";
-import ClientBooking from "./pages/client/ClientBooking";
-import ProviderSubscribe from "./pages/provider/ProviderSubscribe";
-import ProviderOnboarding from "./pages/provider/ProviderOnboarding";
-import ProviderProfile from "./pages/provider/ProviderProfile";
-import ProviderDashboard from "./pages/provider/ProviderDashboard";
+import Landing from "./pages/landing";
+import ClientLanding from "./pages/client/clientlanding";
+import ClientBooking from "./pages/client/clientbooking";
+import ProviderSubscribe from "./pages/provider/providersubscribe";
+import ProviderOnboarding from "./pages/provider/provideronboarding";
+import ProviderProfile from "./pages/provider/providerprofile";
+import ProviderDashboard from "./pages/provider/providerdashboard";
 
 export default function App() {
   return (
