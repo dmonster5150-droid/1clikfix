@@ -1,9 +1,7 @@
 // src/App.jsx
-import React from "react";
 import { Routes, } from "react-router-dom";
 
-import Landing from "./pages/Landing";
-import ProviderOnboarding from "./pages/ProviderOnboarding";
+import Landing from "./pages/Landing"
 
 function App() {
   return (
