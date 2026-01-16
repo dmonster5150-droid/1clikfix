@@ -8,7 +8,7 @@ function App() {
     
 
 
-      <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+      <Route path="/ element={<ProviderDashboard />} />
   
   );
 }
