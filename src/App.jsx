@@ -1,4 +1,4 @@
-// src/App.jsx
+// import PayRedirect from "./pages/PayRedirect";
 
 
 import Landing from "./pages/Landing"
