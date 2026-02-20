@@ -46,3 +46,6 @@ function app() {
 }
 
 export default app;
+import payment_success from "./pages/payment-success";
+
+<Route path="/payment-success" element={<payment_success />} />
