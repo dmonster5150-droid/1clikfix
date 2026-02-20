@@ -49,3 +49,9 @@ export default app;
 import payment_success from "./pages/payment-success";
 
 <Route path="/payment-success" element={<payment_success />} />
+import admin_login from "./pages/admin-login";
+import admin_dashboard from "./pages/admin-dashboard";
+
+<Route path="/admin" element={<admin_login />} />
+
+<Route path="/admin-dashboard" element={<admin_dashboard />} />
