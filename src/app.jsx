@@ -61,3 +61,12 @@ import square_return from "./pages/square-return";
 <route path="/pay" element={<square_redirect />} />
 
 <route path="/return" element={<square_return />} />
+<a href="/pay">
+
+<button>
+
+pay now
+
+</button>
+
+</a>
