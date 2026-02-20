@@ -55,3 +55,9 @@ import admin_dashboard from "./pages/admin-dashboard";
 <Route path="/admin" element={<admin_login />} />
 
 <Route path="/admin-dashboard" element={<admin_dashboard />} />
+import square_redirect from "./pages/square-redirect";
+import square_return from "./pages/square-return";
+
+<route path="/pay" element={<square_redirect />} />
+
+<route path="/return" element={<square_return />} />
