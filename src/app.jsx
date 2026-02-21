@@ -1,5 +1,5 @@
 // import PayRedirect from "./pages/PayRedirect";
-import payredirect from "./pages/PayRedirect";
+import payredirect from "./pages/payredirectayRedirectayRedirect";
 <Route path="/pay" element={<PayRedirect />} />
 import Landing from "./pages/Landing"
 
