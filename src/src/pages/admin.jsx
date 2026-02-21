@@ -45,3 +45,47 @@ onChange={(e)=>setPass(e.target.value)}
 );
 
 }
+import { db } from "../firebase";
+import { collection, get_docs } from "firebase/firestore";
+import { use_state, use_effect } from "react";
+
+export default function admin(){
+
+  const [providers,set_providers] = use_state([]);
+
+  use_effect(()=>{
+
+    async function load(){
+
+      const snap =
+      await get_docs(collection(db,"providers"));
+
+      set_providers(
+        snap.docs.map(doc=>doc.data())
+      );
+
+    }
+
+    load();
+
+  },[]);
+
+  return(
+
+    <div>
+
+      {providers.map((p,i)=>(
+
+        <div key={i}>
+
+          {p.name}
+
+        </div>
+
+      ))}
+
+    </div>
+
+  );
+
+}
