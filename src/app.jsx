@@ -13,7 +13,7 @@ function app() {
   );
 }
 
-export default App;
+export default app;
 import react from "react";
 import { routes, route } from "react-router-dom";
 
