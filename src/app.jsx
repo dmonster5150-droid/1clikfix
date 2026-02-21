@@ -1,7 +1,7 @@
 // import PayRedirect from "./pages/PayRedirect";
 import payredirect from "./pages/payredirect";
 <Route path="/pay" element={<payredirect />} />
-import Landing from "./pages/landing"
+import landing from "./pages/landing"
 
 function app() {
   return (
