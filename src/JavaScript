@@ -1,0 +1,99 @@
+import { useState } from "react";
+
+const OWNER_PASSWORD = import.meta.env.VITE_OWNER_PASSKEY || "Sikkmade666$";
+
+export default function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (password === OWNER_PASSWORD) {
+      setAuthenticated(true);
+      setError("");
+    } else {
+      setError("Access denied");
+    }
+  };
+
+  const handleRedirect = () => {
+    window.location.href = "https://squareup.com/dashboard";
+  };
+
+  if (!authenticated) {
+    return (
+      <div style={styles.container}>
+        <form onSubmit={handleLogin} style={styles.loginBox}>
+          <h2>Owner Access</h2>
+
+          <input
+            type="password"
+            placeholder="Enter passkey"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={styles.input}
+          />
+
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+
+          {error && <p style={styles.error}>{error}</p>}
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <div style={styles.container}>
+      <div style={styles.dashboard}>
+        <h1>1ClikFix Owner Panel</h1>
+
+        <button onClick={handleRedirect} style={styles.button}>
+          Open Square Dashboard
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const styles = {
+  container: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "#0a0a0a",
+    color: "#fff",
+  },
+  loginBox: {
+    background: "#1a1a1a",
+    padding: "30px",
+    borderRadius: "10px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    width: "300px",
+  },
+  dashboard: {
+    textAlign: "center",
+  },
+  input: {
+    padding: "10px",
+    borderRadius: "5px",
+    border: "none",
+  },
+  button: {
+    padding: "10px",
+    borderRadius: "5px",
+    border: "none",
+    background: "#00c853",
+    color: "#fff",
+    cursor: "pointer",
+  },
+  error: {
+    color: "red",
+  },
+};
