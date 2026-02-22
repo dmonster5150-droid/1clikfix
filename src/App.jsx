@@ -1,78 +1,85 @@
-// import PayRedirect from "./pages/PayRedirect";
-import payredirect from "./pages/payredirect";
-<route path="/pay" element={<payredirect />} />
-import landing from "./pages/landing"
+import { useState } from "react"
 
-function app() {
-  return (
-    
+export default function App() {
 
+const [auth, setAuth] = useState(false)
+const [pass, setPass] = useState("")
+const [error, setError] = useState("")
 
-      <route path="/ element={<providerdashboard />} />
-  
-  );
-}
+const login = async () => {
 
-export default app;
-import react from "react";
-import { routes, route } from "react-router-dom";
+const res = await fetch("/.netlify/functions/auth", {
 
-import landing from "./pages/landing";
-import provideronboarding from "./pages/provideronboarding";
-import providerdashboard from "./pages/providerdashboard";
-import payredirect from "./pages/payredirect";
-import admin from "./pages/admin";
+method: "POST",
 
-function app() {
+body: JSON.stringify({
 
-  return (
+pass
 
-    <routes>
+})
 
-      <route path="/" element={<landing />} />
+})
 
-      <route path="/provider-onboarding" element={<provideronboarding />} />
+if (res.status === 200) {
 
-      <route path="/provider-dashboard" element={<providerdashboard />} />
+setAuth(true)
 
-      <route path="/pay" element={<payredirect />} />
+} else {
 
-      <route path="/admin" element={<admin />} />
-
-    </routes>
-
-  );
+setError("wrong password")
 
 }
 
-export default app;
-import payment_success from "./pages/payment-success";
+}
 
-<Route path="/payment-success" element={<payment_success />} />
-import admin_login from "./pages/admin-login";
-import admin_dashboard from "./pages/admin-dashboard";
+if (!auth) {
 
-<Route path="/admin" element={<admin_login />} />
+return (
 
-<Route path="/admin-dashboard" element={<admin_dashboard />} />
-import square_redirect from "./pages/square-redirect";
-import square_return from "./pages/square-return";
+<div style={{ padding: 40 }}>
 
-<route path="/pay" element={<square_redirect />} />
+<h2>owner access</h2>
 
-<route path="/return" element={<square_return />} />
-<a href="/pay">
+<input
+type="password"
+placeholder="passkey"
+onChange={(e)=>setPass(e.target.value)}
+/>
 
-<button>
-
-pay now
-
+<button onClick={login}>
+login
 </button>
 
+<p>{error}</p>
+
+</div>
+
+)
+
+}
+
+return (
+
+<div style={{ padding: 40 }}>
+
+<h1>1clikfix owner dashboard</h1>
+
+<a href="/calendar">
+
+calendar
+
 </a>
-import square_redirect from "./pages/square-redirect";
-import square_return from "./pages/square-return";
 
-<route path="/pay" element={<square_redirect />} />
+<br/>
 
-<route path="/return" element={<square_return />} />
+<a href="/">
+
+customer site
+
+</a>
+
+</div>
+
+)
+
+}
