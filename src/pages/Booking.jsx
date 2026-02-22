@@ -1,7 +1,22 @@
 import { useState } from "react"
 import { db, auth } from "../firebase"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
+await addDoc(collection(db,"bookings"),{
+
+uid:user.uid,
+email:user.email,
+service,
+date,
+time,
+notes,
+
+status:"pending",
+
+paid:false,
+
+created:serverTimestamp()
+
+})
 export default function Booking() {
 
 const [date,setDate] = useState("")
