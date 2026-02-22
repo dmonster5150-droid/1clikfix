@@ -83,3 +83,5 @@ customer site
 )
 
 }
+import Booking from "./pages/Booking"
+import BookingDashboard from "./pages/BookingDashboard"
