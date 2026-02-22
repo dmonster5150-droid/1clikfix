@@ -85,3 +85,5 @@ customer site
 }
 import Booking from "./pages/Booking"
 import BookingDashboard from "./pages/BookingDashboard"
+<Route path="/booking" element={<Booking/>}/>
+<Route path="/booking-dashboard" element={<BookingDashboard/>}/>
