@@ -1,4 +1,4 @@
-import { useState } from "react"
+AdminRouteoute { useState } from "react"
 
 export default function App() {
 
@@ -90,3 +90,12 @@ import BookingDashboard from "./pages/BookingDashboard"
 import Calendar from "./pages/Calendar"
 import Pay from "./pages/Pay"
 import AdminRoute from "./components/AdminRoute"
+<Route path="/pay" element={<Pay/>}/>
+
+<Route path="/calendar"
+element={
+<AdminRoute>
+<Calendar/>
+</AdminRoute>
+}
+/>
