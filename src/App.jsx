@@ -87,3 +87,6 @@ import Booking from "./pages/Booking"
 import BookingDashboard from "./pages/BookingDashboard"
 <Route path="/booking" element={<Booking/>}/>
 <Route path="/booking-dashboard" element={<BookingDashboard/>}/>
+import Calendar from "./pages/Calendar"
+import Pay from "./pages/Pay"
+import AdminRoute from "./components/AdminRoute"
