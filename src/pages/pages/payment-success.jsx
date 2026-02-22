@@ -1,13 +1,15 @@
-export default function payment_success(){
+export default function Success(){
 
-  return(
+return(
 
-    <div>
+<div>
 
-      payment complete
+<h1>payment received</h1>
 
-    </div>
+<p>thank you</p>
 
-  );
+</div>
+
+)
 
 }
