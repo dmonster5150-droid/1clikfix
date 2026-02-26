@@ -2,9 +2,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Landing from "./pages/Landing";
-import ProviderOnboarding from "./pages/ProviderOnboarding";
-import ProviderDashboard from "./pages/ProviderDashboard";
+import Landing from "./pages/landing";
+import ProviderOnboarding from "./pages/provider/provideronboarding";
+import ProviderDashboard from "./pages/providerdashboard";
 
 function App() {
   return (
