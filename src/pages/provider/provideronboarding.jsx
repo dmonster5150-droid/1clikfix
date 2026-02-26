@@ -87,7 +87,11 @@ export default function ProviderOnboarding(){
   const [profile, setProfile] = useState({name:'', email:'', phone:'', business:'', skills:'', hasTools:false});
   const [agreed, setAgreed] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
+  if (!ispai duser()) {
+    navigate("/providers")
+  }
+}, [])(()=>{
     if(!paid){
       // not paid — send to subscribe page
       nav('/provider-subscribe');
