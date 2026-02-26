@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { auth, db } from "../firebase";
+import { ispai duser } from "../lib/paymentlock"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom" { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
