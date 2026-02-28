@@ -1,4 +1,4 @@
-import { useState } from "react"
+<img src="/logo.png" alt="1clikfix logo" className="h-12 md:h-16 w-auto" /> { useState } from "react"
 import Logo from "./Logo"
 
 export default function Header() {
