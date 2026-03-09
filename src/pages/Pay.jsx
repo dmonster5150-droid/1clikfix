@@ -1,23 +1,24 @@
-export default function Pay(){
+export default function Pay() {
 
-const link="https://square.link/u/YOUR_LINK"
+  const link = "https://square.link/u/YOUR_LINK"
 
-return(
+  return (
 
-<div>
+    <div>
 
-<h2>pay now</h2>
+      <h2>pay now</h2>
 
-<a href={link}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
 
-<img
-src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${link}`}
-/>
+        <img
+          alt="payment QR code"
+          src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${link}`}
+        />
 
-</a>
+      </a>
 
-</div>
+    </div>
 
-)
+  )
 
 }
