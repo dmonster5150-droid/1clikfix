@@ -1,95 +1,78 @@
 import { useState } from "react"
 import { db, auth } from "../firebase"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 
-await addDoc(collection(db,"bookings"),{
-
-uid:user.uid,
-email:user.email,
-service,
-date,
-time,
-notes,
-
-status:"pending",
-
-paid:false,
-
-created:serverTimestamp()
-
-})
 export default function Booking() {
 
-const [date,setDate] = useState("")
-const [time,setTime] = useState("")
-const [service,setService] = useState("")
-const [notes,setNotes] = useState("")
-const [status,setStatus] = useState("")
+  const [date, setDate] = useState("")
+  const [time, setTime] = useState("")
+  const [service, setService] = useState("")
+  const [notes, setNotes] = useState("")
+  const [status, setStatus] = useState("")
 
-const submitBooking = async () => {
+  const submitBooking = async () => {
 
-const user = auth.currentUser
+    const user = auth.currentUser
 
-if(!user){
-setStatus("login required")
-return
-}
+    if (!user) {
+      setStatus("login required")
+      return
+    }
 
-await addDoc(collection(db,"bookings"),{
+    await addDoc(collection(db, "bookings"), {
+      uid: user.uid,
+      email: user.email,
+      service,
+      date,
+      time,
+      notes,
+      status: "pending",
+      paid: false,
+      created: serverTimestamp()
+    })
 
-uid:user.uid,
-email:user.email,
-service,
-date,
-time,
-notes,
-created:serverTimestamp(),
-status:"pending"
+    setStatus("booking submitted")
 
-})
+  }
 
-setStatus("booking submitted")
+  return (
 
-}
+    <div>
 
-return(
+      <h2>book service</h2>
 
-<div>
+      <input
+        type="date"
+        onChange={(e) => setDate(e.target.value)}
+      />
 
-<h2>book service</h2>
+      <input
+        type="time"
+        onChange={(e) => setTime(e.target.value)}
+      />
 
-<input
-type="date"
-onChange={(e)=>setDate(e.target.value)}
-/>
+      <select onChange={(e) => setService(e.target.value)}>
 
-<input
-type="time"
-onChange={(e)=>setTime(e.target.value)}
-/>
+        <option value="">select service</option>
+        <option value="phone repair">phone repair</option>
+        <option value="computer repair">computer repair</option>
+        <option value="diagnostic">diagnostic</option>
 
-<select
-onChange={(e)=>setService(e.target.value)}
->
+      </select>
 
-<option>phone repair</option>
-<option>computer repair</option>
-<option>diagnostic</option>
+      <textarea
+        placeholder="notes"
+        onChange={(e) => setNotes(e.target.value)}
+      />
 
-</select>
+      <button onClick={submitBooking}>
+        confirm booking
+      </button>
 
-<textarea
-placeholder="notes"
-onChange={(e)=>setNotes(e.target.value)}
-/>
+      <p>{status}</p>
 
-<button onClick={submitBooking}>
-confirm booking
-</button>
+    </div>
 
-<p>{status}</p>
-
-</div>
-
-)
+  )
 
 }
