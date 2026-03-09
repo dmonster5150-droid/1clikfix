@@ -1,18 +1,6 @@
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
-
-await setDoc(doc(db, "providers", user.uid), {
-  uid: user.uid,
-  name,
-  skills,
-  age,
-  createdAt: Date.now(),
-  approved: true,     // 🔥 AUTO APPROVED
-  subscriptionActive: true
-});
-
-navigate("/provider-dashboard"); { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -24,4 +12,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(app);
+export const auth = getAuth(app);
