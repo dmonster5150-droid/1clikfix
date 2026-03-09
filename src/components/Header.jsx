@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "./Logo"
 
 export default function Header() {
@@ -8,10 +9,10 @@ export default function Header() {
         <Logo size={44} />
 
         <nav className="hidden md:flex gap-10 text-sm font-medium uppercase tracking-wide">
-          <a href="/" className="hover:text-red-500 transition">Home</a>
-          <a href="/clients" className="hover:text-red-500 transition">Clients</a>
-          <a href="/providers" className="hover:text-red-500 transition">Providers</a>
-          <a href="/owner-access" className="hover:text-red-500 transition">Owner</a>
+          <Link to="/" className="hover:text-red-500 transition">Home</Link>
+          <Link to="/clients" className="hover:text-red-500 transition">Clients</Link>
+          <Link to="/providers" className="hover:text-red-500 transition">Providers</Link>
+          <Link to="/owner-access" className="hover:text-red-500 transition">Owner</Link>
         </nav>
 
       </div>
