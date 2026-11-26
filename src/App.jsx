@@ -1,12 +1,18 @@
 
 import { Routes, Route, Link } from "react-router-dom";
 
+// Core components
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 
 // Customer authentication
 import Login from "./pages/login";
 import Register from "./pages/register";
+
+// Customer ecosystem
+import ClientPortal from "./pages/clientportal";
+import ProfileCreation from "./pages/profilecreation";
+import JobForm from "./pages/jobform";
 
 // Booking and scheduling
 import Booking from "./pages/Booking";
@@ -16,10 +22,152 @@ import Calendar from "./pages/Calendar";
 // Payments
 import Pay from "./pages/Pay";
 
+// Legal infrastructure
+import Disclosures from "./pages/disclosure";
+import Terms from "./pages/terms";
+import Privacy from "./pages/privacy";
+
+// Global footer
+function Footer() {
+  return (
+    <footer className="border-t border-gray-800 bg-black px-6 py-12 text-white">
+
+      <div className="mx-auto max-w-7xl">
+
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+          {/* Brand identity */}
+          <div>
+
+            <Link
+              to="/"
+              className="text-3xl font-extrabold text-red-600"
+            >
+              1ClikFix
+            </Link>
+
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
+              A modern service platform designed to
+              simplify service requests, appointment
+              scheduling and customer management.
+            </p>
+
+          </div>
+
+          {/* Customer services */}
+          <div>
+
+            <h2 className="mb-5 font-bold">
+              Customer Services
+            </h2>
+
+            <nav
+              aria-label="Customer services"
+              className="flex flex-col gap-4 text-sm text-gray-400"
+            >
+
+              <Link
+                to="/clientportal"
+                className="hover:text-red-500"
+              >
+                Customer Portal
+              </Link>
+
+              <Link
+                to="/booking"
+                className="hover:text-red-500"
+              >
+                Book a Service
+              </Link>
+
+              <Link
+                to="/jobform"
+                className="hover:text-red-500"
+              >
+                Submit a Job Request
+              </Link>
+
+              <Link
+                to="/booking-dashboard"
+                className="hover:text-red-500"
+              >
+                My Bookings
+              </Link>
+
+              <Link
+                to="/profile"
+                className="hover:text-red-500"
+              >
+                My Profile
+              </Link>
+
+            </nav>
+
+          </div>
+
+          {/* Legal navigation */}
+          <div>
+
+            <h2 className="mb-5 font-bold">
+              Trust & Transparency
+            </h2>
+
+            <nav
+              aria-label="Legal information"
+              className="flex flex-col gap-4 text-sm text-gray-400"
+            >
+
+              <Link
+                to="/disclosures"
+                className="hover:text-red-500"
+              >
+                Disclosures & Agreements
+              </Link>
+
+              <Link
+                to="/terms"
+                className="hover:text-red-500"
+              >
+                Terms of Service
+              </Link>
+
+              <Link
+                to="/privacy"
+                className="hover:text-red-500"
+              >
+                Privacy Policy
+              </Link>
+
+            </nav>
+
+          </div>
+
+        </div>
+
+        {/* Footer bottom */}
+        <div className="mt-10 border-t border-gray-800 pt-6 text-center">
+
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} 1ClikFix.
+            All rights reserved.
+          </p>
+
+          <p className="mt-3 text-xs font-semibold tracking-wider text-gray-500">
+            Professionalism • Transparency • Accountability
+          </p>
+
+        </div>
+
+      </div>
+
+    </footer>
+  );
+}
+
 // Fallback page
 function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#0f0f0f] px-6 text-white">
+    <main className="flex min-h-[65vh] items-center justify-center bg-[#0f0f0f] px-6 py-16 text-white">
 
       <div className="w-full max-w-lg text-center">
 
@@ -53,40 +201,109 @@ function NotFound() {
   );
 }
 
+// Main application
 export default function App() {
   return (
-    <>
+    <div className="flex min-h-screen flex-col bg-[#0f0f0f] text-white">
+
       <Header />
 
-      <Routes>
+      <div className="flex-1">
 
-        {/* Homepage */}
-        <Route path="/" element={<Hero />} />
+        <Routes>
 
-        {/* Customer authentication */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+          {/* Homepage */}
+          <Route
+            path="/"
+            element={<Hero />}
+          />
 
-        {/* Booking */}
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/clients" element={<Booking />} />
+          {/* Customer authentication */}
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-        {/* Dashboard */}
-        <Route
-          path="/booking-dashboard"
-          element={<BookingDashboard />}
-        />
+          <Route
+            path="/register"
+            element={<Register />}
+          />
 
-        {/* Scheduling */}
-        <Route path="/calendar" element={<Calendar />} />
+          {/* Customer portal */}
+          <Route
+            path="/clientportal"
+            element={<ClientPortal />}
+          />
 
-        {/* Payments */}
-        <Route path="/pay" element={<Pay />} />
+          <Route
+            path="/clients"
+            element={<ClientPortal />}
+          />
 
-        {/* Unavailable pages */}
-        <Route path="*" element={<NotFound />} />
+          {/* Customer profile */}
+          <Route
+            path="/profile"
+            element={<ProfileCreation />}
+          />
 
-      </Routes>
-    </>
+          {/* Marketplace requests */}
+          <Route
+            path="/jobform"
+            element={<JobForm />}
+          />
+
+          {/* Service booking */}
+          <Route
+            path="/booking"
+            element={<Booking />}
+          />
+
+          {/* Customer dashboard */}
+          <Route
+            path="/booking-dashboard"
+            element={<BookingDashboard />}
+          />
+
+          {/* Scheduling */}
+          <Route
+            path="/calendar"
+            element={<Calendar />}
+          />
+
+          {/* Payments */}
+          <Route
+            path="/pay"
+            element={<Pay />}
+          />
+
+          {/* Legal infrastructure */}
+          <Route
+            path="/disclosures"
+            element={<Disclosures />}
+          />
+
+          <Route
+            path="/terms"
+            element={<Terms />}
+          />
+
+          <Route
+            path="/privacy"
+            element={<Privacy />}
+          />
+
+          {/* Unavailable pages */}
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+
+        </Routes>
+
+      </div>
+
+      <Footer />
+
+    </div>
   );
 }
