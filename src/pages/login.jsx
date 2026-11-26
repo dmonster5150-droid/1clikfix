@@ -33,7 +33,7 @@ export default function Login() {
         password
       );
 
-      navigate("/booking", { replace: true });
+      navigate("/clientportal", { replace: true });
 
     } catch (err) {
       if (err.code === "auth/too-many-requests") {
