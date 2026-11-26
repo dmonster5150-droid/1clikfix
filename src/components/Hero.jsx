@@ -1,51 +1,59 @@
+
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
-    <section className="relative bg-black text-white overflow-hidden">
+    <section className="relative overflow-hidden bg-black text-white">
 
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent blur-3xl"></div>
+      {/* Background glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent blur-3xl"
+      />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-28 text-center">
+      <div className="relative mx-auto max-w-6xl px-6 py-16 text-center md:py-28">
 
         {/* Tagline */}
-        <p className="text-sm uppercase tracking-widest text-gray-400 mb-6">
+        <p className="mb-6 text-sm uppercase tracking-widest text-gray-400">
           Built for modern service professionals
         </p>
 
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+        <h1 className="mb-6 text-4xl font-bold leading-tight md:text-6xl">
           The Smart Way To
           <br />
-          <span className="text-red-600">Book & Manage Services</span>
+          <span className="text-red-600">
+            Book & Manage Services
+          </span>
         </h1>
 
-        {/* Subtext */}
-        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
-          Connect clients with verified providers. 
-          Secure payments. Instant scheduling. 
-          Everything handled in one streamlined platform.
+        {/* Description */}
+        <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+          Connect with service professionals.
+          Request appointments and manage your
+          services in one streamlined platform.
         </p>
 
-        {/* CTA */}
-        <div className="flex flex-col md:flex-row justify-center gap-6">
+        {/* Action buttons */}
+        <div className="flex flex-col justify-center gap-6 md:flex-row">
 
-          <a
-            href="/clients"
-            className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-2xl text-lg font-semibold transition transform hover:-translate-y-1 shadow-xl"
+          <Link
+            to="/booking"
+            className="rounded-2xl bg-red-600 px-10 py-4 text-lg font-semibold shadow-xl transition hover:-translate-y-1 hover:bg-red-700"
           >
             Book a Service
-          </a>
+          </Link>
 
-          <a
-            href="/providers"
-            className="border border-gray-700 hover:border-white px-10 py-4 rounded-2xl text-lg font-semibold transition transform hover:-translate-y-1"
+          <Link
+            to="/providers"
+            className="rounded-2xl border border-gray-700 px-10 py-4 text-lg font-semibold transition hover:-translate-y-1 hover:border-white"
           >
             Join as Provider
-          </a>
+          </Link>
 
         </div>
 
       </div>
     </section>
-  )
+  );
 }
