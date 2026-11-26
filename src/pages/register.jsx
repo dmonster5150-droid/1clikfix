@@ -88,7 +88,7 @@ export default function Register() {
         displayName: name
       });
 
-      navigate("/booking", { replace: true });
+      navigate("/clientportal", { replace: true });
 
     } catch (err) {
 
